@@ -2,17 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   --primary-yellow: #FFD700;
   --primary-blue: #87CEEB;
   --background: #ffffff;
   --foreground: #1a1a1a;
+} */
+:root {
+  --primary-yellow: #FFC107;
+  --primary-blue: #4682B4;
+  --background: #000000;
+  --foreground: #808080;
 }
 
 .dark {
+  --background: #000000;
+  --foreground: #808080;
+}
+/* .dark {
   --background: #1a1a1a;
   --foreground: #ffffff;
-}
+} */
 
 body {
   @apply bg-background text-foreground transition-colors duration-300;
