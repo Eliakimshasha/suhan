@@ -9,11 +9,13 @@ import Projects from '@/components/sections/Projects'
 import Technologies from '@/components/sections/Technologies'
 import Contact from '@/components/sections/Contact'
 import Footer from '@/components/shared/Footer'
+import Header from '@/components/shared/Header'
 
 export default function Home() {
   return (
     <>
-      <Navigation />
+      {/* <Navigation /> */}
+      <Header/>
       <main className="min-h-screen">
         <section id="home">
           <Suspense fallback={<LoadingSpinner />}>

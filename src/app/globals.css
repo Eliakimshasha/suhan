@@ -5,10 +5,15 @@
 :root {
   --primary-yellow: #FFD700;
   --primary-blue: #87CEEB;
-  --dark: #1a1a1a;
-  --light: #ffffff;
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #ffffff;
 }
 
 body {
-  @apply bg-white dark:bg-gray-900 transition-colors duration-300;
+  @apply bg-background text-foreground transition-colors duration-300;
 }

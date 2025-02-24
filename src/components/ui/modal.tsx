@@ -20,7 +20,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
   if (!isMounted) return null
 
   return (
-    <AnimatePresence>
+    <AnimatePresence >
       {isOpen && (
         <>
           <motion.div
@@ -34,8 +34,8 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
             initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 100 }}
-            className="fixed inset-x-4 top-[10%] md:inset-x-auto md:left-1/2 md:-translate-x-1/2 md:w-full md:max-w-2xl bg-white dark:bg-gray-800 rounded-lg z-50 overflow-hidden"
-          >
+            className="fixed inset-0 flex items-center justify-center p-4 md:p-0"
+            >
             <button
               onClick={onClose}
               className="absolute top-4 right-4 p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-full"

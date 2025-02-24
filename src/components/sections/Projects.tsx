@@ -11,7 +11,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<typeof projectsData[0] | null>(null)
 
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section className="py-20 bg-gray-50 dark:bg-gray-800 lg:px-24">
       <div className="container mx-auto px-4">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -37,6 +37,8 @@ export default function Projects() {
                 <Image
                   src={project.image}
                   alt={project.title}
+                  width={800}
+                  height={500}
                   className="w-full h-48 object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
@@ -76,6 +78,8 @@ export default function Projects() {
             <div>
               <Image
                 src={selectedProject.image}
+                 width={800}
+                  height={500}
                 alt={selectedProject.title}
                 className="w-full h-64 object-cover rounded-lg mb-6"
               />

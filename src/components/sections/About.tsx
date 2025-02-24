@@ -17,7 +17,7 @@ export default function About() {
   }, [controls, isInView])
 
   return (
-    <section ref={ref} className="py-20 bg-gray-50 dark:bg-gray-800">
+    <section ref={ref} className="py-20 bg-gray-50 dark:bg-gray-800 lg:px-24">
       <div className="container mx-auto px-4">
         <motion.div
           initial="hidden"
