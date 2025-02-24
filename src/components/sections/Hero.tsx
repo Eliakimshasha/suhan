@@ -93,7 +93,7 @@ export default function Hero() {
             />
 
             <motion.h1
-              className="text-5xl lg:block justify-center font-title mt-0 lg:mt-0 items-center font-bold mb-0 bg-clip-text text-center md:text-center lg:text-center text-transparent bg-gradient-to-r from-yellow-400 to-blue-400"
+              className="text-5xl lg:text-[70px] lg:block justify-center font-title mt-0 lg:mt-0 items-center font-bold mb-0 bg-clip-text text-center md:text-center lg:text-center text-transparent bg-gradient-to-r from-yellow-400 to-blue-400"
               animate={{ scale: [1, 1.02, 1] }}
               transition={{ repeat: Infinity, duration: 4 }}
             >
