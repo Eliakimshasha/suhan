@@ -42,7 +42,9 @@ export default function Header() {
           animate={{ opacity: 1, x: 0 }}
           className="text-2xl font-bold text-yellow-400"
         >
-         <Image src={Logo} width={100} alt='SC' height={100}/>
+        <div className='w-[150px] h-[100px] relative overflow-hidden'>
+        <Image src={Logo} width={100} alt='SC' className='w-auto h-full' height={100}/>
+        </div>
         </motion.div>
         
         <div className="flex items-center gap-6 bg-gray-200 dark:bg-gray-800 rounded-full">
