@@ -20,7 +20,7 @@ export default function Hero() {
             animate={{ scale: [1, 1.02, 1] }}
             transition={{ repeat: Infinity, duration: 4 }}
           >
-            Suhan Creatives
+            <span className='sm:text-[100px]'>Suhan</span> Creatives
             {/* <Image src={Logo} height={100} width={100}  className='w-[500px] h-auto' alt='Suhan Creatives'/> */}
           </motion.h1>
           <motion.p
