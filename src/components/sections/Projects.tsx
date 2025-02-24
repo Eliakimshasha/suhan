@@ -69,8 +69,8 @@ export default function Projects() {
                       </span>
                     ))}
                   </div>
-                  <div>
-                    <LuScanEye size={25} />
+                  <div >
+                    <LuScanEye size={25} className='bg-black p-2 rounded-full bg-opacity-60'/>
                   </div>
                 </div>
               </div>
