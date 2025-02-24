@@ -22,7 +22,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       fullWidth = false,
       leftIcon,
       rightIcon,
-      className = '',
+      className = 'outline-none',
       disabled,
       ...props
     },
