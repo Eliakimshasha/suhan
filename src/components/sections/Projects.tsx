@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Modal } from '@/components/ui/modal'
 import { ExternalLink } from 'lucide-react'
 import { projectsData } from '../lib/constants'
+import { LuScanEye } from "react-icons/lu";
 import Image from 'next/image'
 
 export default function Projects() {
@@ -55,7 +56,8 @@ export default function Projects() {
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   {project.description}
                 </p>
-                <div className="flex flex-wrap gap-2">
+               <div className='flex justify-center items-center'>
+               <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, i) => (
                     <span
                       key={i}
@@ -65,6 +67,8 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
+                <div><LuScanEye size={25}/></div>
+               </div>
               </div>
             </motion.div>
           ))}
