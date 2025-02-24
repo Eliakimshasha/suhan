@@ -50,7 +50,7 @@ export default function About() {
                   visible: { opacity: 1, y: 0 }
                 }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className="p-6 h-[350px] bg-white dark:bg-gray-700 rounded-lg shadow-lg"
+                className="p-6 h-[250px] bg-white dark:bg-gray-700 flex flex-col justify-center items-center rounded-lg shadow-lg"
               >
                 <h3 className="text-3xl font-bold text-yellow-400">{stat.number}</h3>
                 <p className="text-gray-600 dark:text-gray-300">{stat.label}</p>
