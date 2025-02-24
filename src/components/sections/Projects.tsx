@@ -1,15 +1,17 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
-import { Modal } from '@/components/ui/modal'
-import { ExternalLink } from 'lucide-react'
-import { projectsData } from '../lib/constants'
-import { LuScanEye } from "react-icons/lu";
-import Image from 'next/image'
+import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { Modal } from '@/components/ui/modal';
+import { ExternalLink } from 'lucide-react';
+import { projectsData } from '../lib/constants';
+import { LuScanEye } from 'react-icons/lu';
+import Image from 'next/image';
 
 export default function Projects() {
-  const [selectedProject, setSelectedProject] = useState<typeof projectsData[0] | null>(null)
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projectsData)[0] | null
+  >(null);
 
   return (
     <section className="py-20 bg-gray-50 dark:bg-gray-800 lg:px-24">
@@ -56,19 +58,21 @@ export default function Projects() {
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   {project.description}
                 </p>
-               <div className='flex justify-center items-center'>
-               <div className="flex flex-wrap gap-2">
-                  {project.technologies.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-sm rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                <div className="flex justify-between items-center">
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, i) => (
+                      <span
+                        key={i}
+                        className="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-sm rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div>
+                    <LuScanEye size={25} />
+                  </div>
                 </div>
-                <div><LuScanEye size={25}/></div>
-               </div>
               </div>
             </motion.div>
           ))}
@@ -82,8 +86,8 @@ export default function Projects() {
             <div>
               <Image
                 src={selectedProject.image}
-                 width={800}
-                  height={500}
+                width={800}
+                height={500}
                 alt={selectedProject.title}
                 className="w-full h-64 object-cover rounded-lg mb-6"
               />
@@ -121,5 +125,5 @@ export default function Projects() {
         </Modal>
       </div>
     </section>
-  )
+  );
 }
