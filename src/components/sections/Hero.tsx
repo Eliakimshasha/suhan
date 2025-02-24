@@ -16,11 +16,11 @@ export default function Hero() {
           className="text-center"
         >
           <motion.h1
-            className="text-6xl flex justify-center sm:flex-col sm:justify-center items-center font-bold mb-4 bg-clip-text text-center md:text-center lg:text-center text-transparent bg-gradient-to-r from-yellow-400 to-blue-400"
+            className="text-6xl flex justify-center  items-center font-bold mb-4 bg-clip-text text-center md:text-center lg:text-center text-transparent bg-gradient-to-r from-yellow-400 to-blue-400"
             animate={{ scale: [1, 1.02, 1] }}
             transition={{ repeat: Infinity, duration: 4 }}
           >
-            <span className='sm:text-[100px]'>Suhan</span> Creatives
+            Suhan Creatives
             {/* <Image src={Logo} height={100} width={100}  className='w-[500px] h-auto' alt='Suhan Creatives'/> */}
           </motion.h1>
           <motion.p
