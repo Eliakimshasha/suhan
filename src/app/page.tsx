@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import Navigation from '@/components/shared/Navigation'
+// import Navigation from '@/components/shared/Navigation'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
 // import Header from '@/components/shared/Header'
 import Hero from '@/components/sections/Hero'
