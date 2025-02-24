@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-yellow: #FFD700;
+  --primary-blue: #87CEEB;
+  --dark: #1a1a1a;
+  --light: #ffffff;
+}
+
+body {
+  @apply bg-white dark:bg-gray-900 transition-colors duration-300;
+}
