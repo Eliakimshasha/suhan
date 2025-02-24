@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import Logo from '@/assets/suhan.png'
 import { Sun, Moon } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Header() {
   const [isDark, setIsDark] = useState(false)
@@ -40,7 +42,7 @@ export default function Header() {
           animate={{ opacity: 1, x: 0 }}
           className="text-2xl font-bold text-yellow-400"
         >
-          SC
+         <Image src={Logo} width={100} height={100}/>
         </motion.div>
         
         <div className="flex items-center gap-6 bg-gray-200 dark:bg-gray-800 rounded-full">

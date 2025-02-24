@@ -5,12 +5,8 @@ import { Button } from '../ui/button';
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-100 to-blue-200 dark:from-yellow-900 dark:to-gray-800 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.7),transparent_50%)]"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_70%,rgba(255,255,255,0.5),transparent_50%)]"></div>
-      <div className="absolute top-1/3 left-1/4 w-[120%] h-[120%] bg-orange-400 rounded-full transform rotate-45 opacity-40 blur-3xl"></div>
-      <div className="absolute top-2/4 left-2/4 w-[150%] h-[150%] bg-blue-300 rounded-full transform -translate-x-1/2 -translate-y-1/2 opacity-30 blur-2xl"></div>
-      <div className="container mx-auto px-4">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-yellow-100 to-blue-200 dark:from-yellow-900 dark:to-gray-800">
+        <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
