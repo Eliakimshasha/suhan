@@ -56,7 +56,7 @@ export default function Header() {
           </div>
         </motion.div>
 
-        <div className="flex items-center gap-6 bg-yellow-400 dark:bg-gray-800 rounded-full">
+        <div className="flex items-center gap-6 bg-yellow-200 dark:bg-gray-800 rounded-full">
           <button
             onClick={toggleDarkMode}
             className="p-2 rounded-full hover:bg-gray-300 dark:hover:bg-gray-700 transition-colors"
