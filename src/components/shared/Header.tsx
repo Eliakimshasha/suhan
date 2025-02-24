@@ -30,9 +30,10 @@ export default function Header() {
       document.documentElement.classList.remove('dark')
     }
   }
+    // dark:bg-gray-900/80 
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-transparent dark:bg-gray-900/80 backdrop-blur-sm">
+    <header className="fixed w-full top-0 z-50 bg-transparent dark:bg-transparent backdrop-blur-sm">
       <nav className="container mx-auto px-4 py-4 flex items-center justify-between">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
