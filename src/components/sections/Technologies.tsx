@@ -1,14 +1,22 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { FaReact } from "react-icons/fa";
+import { RiNextjsLine } from "react-icons/ri";
+import { FaFigma } from "react-icons/fa";
+import { RiTailwindCssFill } from "react-icons/ri";
+import { FaNodeJs } from "react-icons/fa";
+import { SiMongodb } from "react-icons/si";
+import { TbBrandAdobeIllustrator } from "react-icons/tb";
+
 
 const technologies = [
-  { name: 'React Native', icon: '📱' },
-  { name: 'Next.js', icon: '⚡' },
-  { name: 'Tailwind CSS', icon: '🎨' },
-  { name: 'Figma', icon: '✏️' },
-  { name: 'Three.js', icon: '🎮' },
-  { name: 'Node.js', icon: '🚀' }
+  { name: 'React Native', icon: <FaReact/> },
+  { name: 'Next.js', icon: <RiNextjsLine/> },
+  { name: 'Tailwind CSS', icon: <RiTailwindCssFill/> },
+  { name: 'Figma', icon: <FaFigma/> },
+  { name: 'Adobe', icon: <TbBrandAdobeIllustrator/> },
+  { name: 'Node.js', icon: <FaNodeJs/> }
 ]
 
 export default function Technologies() {
