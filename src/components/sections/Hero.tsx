@@ -31,7 +31,7 @@ export default function Hero() {
           >
             Transforming ideas into digital experiences
           </motion.p>
-          <Button className="bg-yellow-400 hover:bg-yellow-500 text-white px-8 py-3 mb-4 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105">
+          <Button className="bg-yellow-400 hover:bg-yellow-500 text-white px-8 py-3 mb-9 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105">
             Get in Touch
           </Button>
         </motion.div>
