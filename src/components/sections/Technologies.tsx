@@ -6,7 +6,6 @@ import { RiNextjsLine } from "react-icons/ri";
 import { FaFigma } from "react-icons/fa";
 import { RiTailwindCssFill } from "react-icons/ri";
 import { FaNodeJs } from "react-icons/fa";
-import { SiMongodb } from "react-icons/si";
 import { TbBrandAdobeIllustrator } from "react-icons/tb";
 
 
