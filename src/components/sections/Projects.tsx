@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import { Modal } from '@/components/ui/modal'
 import { ExternalLink } from 'lucide-react'
 import { projectsData } from '../lib/constants'
+import Image from 'next/image'
 
 export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<typeof projectsData[0] | null>(null)
@@ -33,7 +34,7 @@ export default function Projects() {
               onClick={() => setSelectedProject(project)}
             >
               <div className="relative">
-                <img
+                <Image
                   src={project.image}
                   alt={project.title}
                   className="w-full h-48 object-cover"
@@ -73,7 +74,7 @@ export default function Projects() {
         >
           {selectedProject && (
             <div>
-              <img
+              <Image
                 src={selectedProject.image}
                 alt={selectedProject.title}
                 className="w-full h-64 object-cover rounded-lg mb-6"

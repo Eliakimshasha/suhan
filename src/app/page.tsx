@@ -1,7 +1,7 @@
 import { Suspense } from 'react'
 import Navigation from '@/components/shared/Navigation'
 import LoadingSpinner from '@/components/shared/LoadingSpinner'
-import Header from '@/components/shared/Header'
+// import Header from '@/components/shared/Header'
 import Hero from '@/components/sections/Hero'
 import About from '@/components/sections/About'
 import Services from '@/components/sections/Services'
