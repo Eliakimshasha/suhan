@@ -24,7 +24,7 @@ export default function Hero() {
             <Image src={Logo} height={100} width={100}  className='w-[500px] h-auto' alt='Suhan Creatives'/>
           </motion.h1>
           <motion.p
-            className="text-xl mb-8 text-gray-700 dark:text-gray-300"
+            className="text-xl mb-3 text-gray-700 dark:text-gray-300"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
