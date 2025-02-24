@@ -2,8 +2,7 @@
 
 import { motion } from 'framer-motion'
 import { Button } from '../ui/button'
-// import { Button } from '/components/ui/button'
-Button
+
 
 export default function Hero() {
   return (
