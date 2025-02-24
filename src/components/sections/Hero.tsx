@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
+import Logo from '@/assets/suhan.png';
+import Image from 'next/image';
 
 export default function Hero() {
   return (
@@ -18,7 +20,8 @@ export default function Hero() {
             animate={{ scale: [1, 1.02, 1] }}
             transition={{ repeat: Infinity, duration: 4 }}
           >
-            Suhan Creatives
+            {/* Suhan Creatives */}
+            <Image src={Logo} height={100} width={100}  className='w-[300px] h-auto' alt='Suhan Creatives'/>
           </motion.h1>
           <motion.p
             className="text-xl mb-8 text-gray-700 dark:text-gray-300"
