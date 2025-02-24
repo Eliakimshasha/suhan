@@ -128,11 +128,11 @@ export default function Hero() {
             transition={{ delay: 1, type: 'spring', stiffness: 100 }}
             className="relative"
           >
-            <motion.div
+            {/* <motion.div
               className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-300 to-blue-300 dark:from-yellow-500 dark:to-blue-500 opacity-75 blur-md"
               animate={{ scale: [1, 1.05, 1] }}
               transition={{ duration: 2, repeat: Infinity }}
-            />
+            /> */}
 
             <Button className="relative bg-white dark:bg-gray-800 hover:bg-yellow-50 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg group overflow-hidden">
               <motion.span
