@@ -15,14 +15,14 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
           className="text-center"
         >
-          <motion.div
+          <motion.h1
             className="text-6xl flex justify-center items-center font-bold mb-0 bg-clip-text text-center md:text-center lg:text-center text-transparent bg-gradient-to-r from-yellow-400 to-blue-400"
             animate={{ scale: [1, 1.02, 1] }}
             transition={{ repeat: Infinity, duration: 4 }}
           >
-            {/* Suhan Creatives */}
-            <Image src={Logo} height={100} width={100}  className='w-[500px] h-auto' alt='Suhan Creatives'/>
-          </motion.div>
+            Suhan Creatives
+            {/* <Image src={Logo} height={100} width={100}  className='w-[500px] h-auto' alt='Suhan Creatives'/> */}
+          </motion.h1>
           <motion.p
             className="text-xl mb-3 text-gray-700 dark:text-gray-300"
             initial={{ opacity: 0 }}
