@@ -22,7 +22,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
   return (
     <AnimatePresence >
       {isOpen && (
-        <>
+        < div className='bg-gray-900'>
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -46,7 +46,7 @@ export function Modal({ isOpen, onClose, children }: ModalProps) {
               {children}
             </div>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   )
