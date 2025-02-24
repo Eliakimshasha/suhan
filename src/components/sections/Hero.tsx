@@ -24,14 +24,14 @@ export default function Hero() {
             {/* <Image src={Logo} height={100} width={100}  className='w-[500px] h-auto' alt='Suhan Creatives'/> */}
           </motion.h1>
           <motion.p
-            className="text-xl mb-3 text-gray-700 dark:text-gray-300"
+            className="text-xl mb-4 text-gray-700 dark:text-gray-300"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
           >
             Transforming ideas into digital experiences
           </motion.p>
-          <Button className="bg-yellow-400 hover:bg-yellow-500 text-white px-8 py-3 mb-14 rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105">
+          <Button className="bg-yellow-400 hover:bg-yellow-500 text-white px-8 py-3  rounded-full text-lg font-semibold transition-all duration-300 hover:scale-105">
             Get in Touch
           </Button>
         </motion.div>
