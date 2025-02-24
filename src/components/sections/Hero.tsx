@@ -2,8 +2,8 @@
 
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
-import Logo from '@/assets/suhan.png';
-import Image from 'next/image';
+// import Logo from '@/assets/suhan.png';
+// import Image from 'next/image';
 
 export default function Hero() {
   return (
