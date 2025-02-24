@@ -70,7 +70,7 @@ export default function Projects() {
                     ))}
                   </div>
                   <div >
-                    {/* <LuScanEye size={35} className='bg-black p-2 rounded-full bg-opacity-60'/> */}
+                    <LuScanEye size={35} className='bg-black p-2 rounded-full bg-opacity-60'/>
                   </div>
                 </div>
               </div>
