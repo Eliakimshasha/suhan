@@ -4,7 +4,6 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '../ui/button';
 import TopDecoration from "@/components/ui/topDecoration"
-import { useRouter } from 'next/router';
 
 
 export default function Hero() {

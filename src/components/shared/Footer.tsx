@@ -1,8 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import Logo from '@/assets/suhan.png';
-import Image from 'next/image';
+
 import TopDecoration from '../ui/topDecoration';
 
 export default function Footer() {
