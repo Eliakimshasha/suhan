@@ -10,6 +10,8 @@ import Technologies from '@/components/sections/Technologies'
 import Contact from '@/components/sections/Contact'
 import Footer from '@/components/shared/Footer'
 import Header from '@/components/shared/Header'
+import HappyClients from '@/components/sections/HappyClients'
+
 
 export default function Home() {
   return (
@@ -44,6 +46,12 @@ export default function Home() {
         <section id="technologies">
           <Suspense fallback={<LoadingSpinner />}>
             <Technologies />
+          </Suspense>
+        </section>
+
+        <section id="technologies">
+          <Suspense fallback={<LoadingSpinner />}>
+            <HappyClients />
           </Suspense>
         </section>
 

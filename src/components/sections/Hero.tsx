@@ -3,11 +3,14 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '../ui/button';
+import TopDecoration from "@/components/ui/topDecoration"
+import { useRouter } from 'next/router';
+
 
 export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
-  
+
   const textItems = [
     'Transforming ideas into digital experiences',
     'Crafting stunning websites & apps',
@@ -19,12 +22,12 @@ export default function Hero() {
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     // Set up text rotation interval
     const textInterval = setInterval(() => {
-      setCurrentTextIndex(prev => (prev + 1) % textItems.length);
+      setCurrentTextIndex((prev) => (prev + 1) % textItems.length);
     }, 3000);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearInterval(textInterval);
@@ -71,7 +74,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          style={{ y: scrollY * -0.2 }} 
+          style={{ y: scrollY * -0.2 }}
           className="text-center"
         >
           <motion.div
@@ -91,7 +94,13 @@ export default function Hero() {
                 repeatType: 'mirror',
               }}
             />
-
+            <motion.div
+              className="text-5xl lg:text-[70px] lg:block justify-center font-title mt-0 lg:mt-0 items-center font-bold mb-0 bg-clip-text text-center md:text-center lg:text-center text-transparent bg-gradient-to-r from-yellow-400 to-blue-400"
+              animate={{ scale: [1, 1.02, 1] }}
+              transition={{ repeat: Infinity, duration: 4 }}
+            >
+              <TopDecoration/>
+            </motion.div>
             <motion.h1
               className="text-5xl lg:text-[70px] lg:block justify-center font-title mt-0 lg:mt-0 items-center font-bold mb-0 bg-clip-text text-center md:text-center lg:text-center text-transparent bg-gradient-to-r from-yellow-400 to-blue-400"
               animate={{ scale: [1, 1.02, 1] }}
@@ -128,13 +137,9 @@ export default function Hero() {
             transition={{ delay: 1, type: 'spring', stiffness: 100 }}
             className="relative"
           >
-            {/* <motion.div
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-yellow-300 to-blue-300 dark:from-yellow-500 dark:to-blue-500 opacity-75 blur-md"
-              animate={{ scale: [1, 1.05, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            /> */}
+           
 
-            <Button className="relative bg-white dark:bg-gray-800 hover:bg-yellow-50 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg group overflow-hidden">
+            <Button  className="relative bg-white dark:bg-gray-800 hover:bg-yellow-50 dark:hover:bg-gray-700 text-gray-800 dark:text-gray-200 px-8 py-3 rounded-full text-lg font-semibold transition-all duration-300 shadow-lg group overflow-hidden">
               <motion.span
                 className="absolute inset-0 bg-gradient-to-r from-yellow-300 to-blue-300 dark:from-yellow-500 dark:to-blue-500 opacity-0 group-hover:opacity-20 transition-opacity duration-300"
                 animate={{
@@ -145,8 +150,6 @@ export default function Hero() {
               Get in Touch
             </Button>
           </motion.div>
-
-         
         </motion.div>
       </div>
     </section>

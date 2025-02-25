@@ -23,7 +23,7 @@ export default function Contact() {
   }
 
   return (
-    <section className="py-20 bg-white dark:bg-gray-900 lg:px-24">
+    <section className="py-20 pt-0 lg:pt-20 bg-white dark:bg-gray-900 lg:px-24">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -31,31 +31,15 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto"
         >
-          <h2 className="text-4xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-blue-400">
+          <h2 className="text-4xl font-bold text-center  bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-blue-400">
             Get in Touch
           </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div>
-              <h3 className="text-2xl font-semibold mb-6 text-gray-800 dark:text-white">
+          <h3 className=" text-center font-semibold mb-16 text-gray-800 dark:text-gray-400">
                 Contact Information
               </h3>
-              <div className="space-y-6">
-                {[
-                  { icon: Mail, text: 'hello@suhancreatives.com' },
-                  { icon: Phone, text: '+1 (555) 123-4567' },
-                  { icon: MapPin, text: 'San Francisco, CA' }
-                ].map((item, index) => {
-                  const Icon = item.icon
-                  return (
-                    <div key={index} className="flex items-center space-x-4">
-                      <Icon className="w-6 h-6 text-yellow-400" />
-                      <span className="text-gray-600 dark:text-gray-300">{item.text}</span>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
               <div>
@@ -105,6 +89,24 @@ export default function Contact() {
                 {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
+            <div>
+             
+             <div className="space-y-6">
+               {[
+                 { icon: Mail, text: 'hello@suhancreatives.com' },
+                 { icon: Phone, text: '+1 (555) 123-4567' },
+                 { icon: MapPin, text: 'San Francisco, CA' }
+               ].map((item, index) => {
+                 const Icon = item.icon
+                 return (
+                   <div key={index} className="flex items-center space-x-4">
+                     <Icon className="w-6 h-6 text-yellow-400" />
+                     <span className="text-gray-600 dark:text-gray-300">{item.text}</span>
+                   </div>
+                 )
+               })}
+             </div>
+           </div>
           </div>
         </motion.div>
       </div>
