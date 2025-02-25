@@ -178,7 +178,7 @@ export default function Footer() {
           {/* Services Section - takes 4 columns on large screens */}
           <div className="md:col-span-4">
             <div className="p-6 rounded-lg transition-all duration-300">
-              <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white border-b border-gray-300 dark:border-gray-700 pb-2">
+              <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white lg:border-b border-gray-300 dark:border-gray-700 pb-2">
                 Services
               </h4>
               <ul className="space-y-3">
@@ -208,7 +208,7 @@ export default function Footer() {
           {/* Quick Links Section - takes 4 columns on large screens */}
           <div className="md:col-span-4">
             <div className="p-6 rounded-lg transition-all duration-300">
-              <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white border-b border-gray-300 dark:border-gray-700 pb-2">
+              <h4 className="text-lg font-semibold mb-4 text-gray-900 dark:text-white lg:border-b border-gray-300 dark:border-gray-700 pb-2">
                 Quick Links
               </h4>
               <ul className="space-y-3">
