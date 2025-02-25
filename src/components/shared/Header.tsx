@@ -39,7 +39,7 @@ export default function Header() {
 
   return (
     <header className="fixed w-full top-0 z-50 bg-transparent dark:bg-transparent backdrop-blur-sm">
-      <nav className="container mx-auto px-4 py-2 lg:py-4 flex items-center pl-0 justify-between">
+      <nav className="container mx-auto px-4 lg:px-24 py-2 lg:py-4 flex items-center pl-0 justify-between">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}

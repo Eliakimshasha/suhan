@@ -79,50 +79,50 @@ export default function Projects() {
         </div>
 
         <Modal
-          isOpen={!!selectedProject}
-          onClose={() => setSelectedProject(null)}
-        >
-          {selectedProject && (
-            <div>
-              <Image
-                src={selectedProject.image}
-                width={800}
-                height={500}
-                alt={selectedProject.title}
-                className="w-full h-64 object-cover rounded-lg mb-6"
-              />
-              <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
-                {selectedProject.title}
-              </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-6">
-                {selectedProject.description}
-              </p>
-              <div className="mb-6">
-                <h4 className="font-semibold mb-2 text-gray-800 dark:text-white">
-                  Technologies Used:
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.technologies.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 rounded"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <a
-                href={selectedProject.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded-lg transition-colors"
-              >
-                View Project <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
-          )}
-        </Modal>
+  isOpen={!!selectedProject}
+  onClose={() => setSelectedProject(null)}
+>
+  {selectedProject && (
+    <div className="w-full">
+      <Image
+        src={selectedProject.image}
+        width={800}
+        height={500}
+        alt={selectedProject.title}
+        className="w-full h-64 object-cover rounded-lg mb-6"
+      />
+      <h3 className="text-2xl font-bold mb-4 text-gray-800 dark:text-white">
+        {selectedProject.title}
+      </h3>
+      <p className="text-gray-600 dark:text-gray-300 mb-6">
+        {selectedProject.description}
+      </p>
+      <div className="mb-6">
+        <h4 className="font-semibold mb-2 text-gray-800 dark:text-white">
+          Technologies Used:
+        </h4>
+        <div className="flex flex-wrap gap-2">
+          {selectedProject.technologies.map((tech, i) => (
+            <span
+              key={i}
+              className="px-3 py-1 bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 rounded"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+      <a
+        href={selectedProject.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center gap-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-white rounded-lg transition-colors"
+      >
+        View Project <ExternalLink className="w-4 h-4" />
+      </a>
+    </div>
+  )}
+</Modal>
       </div>
     </section>
   );
