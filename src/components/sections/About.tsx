@@ -63,7 +63,7 @@ export default function About() {
           <h2 className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-blue-400">
             About Suhan Creatives
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+          <p className="text-sm text-gray-600 dark:text-gray-300 mb-6">
             We are a passionate team of creators, developers, and innovators dedicated to transforming digital ideas into reality. With expertise in graphic design, mobile development, and web solutions, we craft experiences that leave lasting impressions.
           </p>
           
@@ -122,7 +122,7 @@ export default function About() {
                     <div className="w-16 h-1 bg-gradient-to-r from-yellow-400 to-blue-400 rounded-full mb-4 transform translate-z-2"></div>
                     
                     {/* Label with depth */}
-                    <p className="text-gray-600 dark:text-gray-300 font-medium text-lg transform translate-z-4">
+                    <p className="text-gray-600 font-bold dark:text-gray-300  text-lg transform translate-z-4">
                       {stat.label}
                     </p>
                     

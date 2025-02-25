@@ -202,16 +202,16 @@ export default function HappyClients() {
                       <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr opacity-10 rounded-full blur-2xl"></div>
 
                       {/* Responsive Grid Layout */}
-                      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 p-6 md:p-8 lg:p-10">
+                      <div className="grid grid-cols-1  lg:grid-cols-5 gap-6 p-6 md:p-8 lg:p-10">
                         {/* Left Column - Client Image and Info */}
-                        <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
+                        <div className="lg:col-span-1 flex flex-col  items-center lg:items-start">
                           <motion.div
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.3, duration: 0.5 }}
-                            className="relative"
+                            className="relative "
                           >
-                            <div className="w-28 h-28 lg:w-32 lg:h-32 rounded-full overflow-hidden relative border-4 border-white/10">
+                            <div className="w-28 h-28  m-auto lg:w-32 lg:h-32 rounded-full overflow-hidden relative border-4 border-white/10">
                               <img
                                 src={clients[activeIndex].image}
                                 alt={clients[activeIndex].name}
