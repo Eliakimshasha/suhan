@@ -62,24 +62,24 @@ export default function Footer() {
           <rect width="100%" height="100%" fill="#f9fafb" className="dark:fill-gray-900" />
 
           {/* Elegant diagonal lines */}
-          <path
+          {/* <path
             d="M0,0 L1000,300"
             stroke="#EAB308"
             strokeWidth="0.8"
             strokeOpacity="0.08"
-          />
-          <path
+          /> */}
+          {/* <path
             d="M0,100 L1000,400"
             stroke="#EAB308"
             strokeWidth="0.8"
             strokeOpacity="0.08"
-          />
-          <path
+          /> */}
+          {/* <path
             d="M0,200 L1000,500"
             stroke="#EAB308"
             strokeWidth="0.8"
             strokeOpacity="0.08"
-          />
+          /> */}
 
           {/* Wave pattern overlay */}
           <rect
