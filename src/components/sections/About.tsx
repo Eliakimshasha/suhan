@@ -58,7 +58,7 @@ export default function About() {
             visible: { opacity: 1, y: 0 }
           }}
           transition={{ duration: 0.8 }}
-          className="max-w-3xl mx-auto text-center"
+          className="mx-auto text-center"
         >
           <h2 className="text-4xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-blue-400">
             About Suhan Creatives
@@ -67,7 +67,7 @@ export default function About() {
             We are a passionate team of creators, developers, and innovators dedicated to transforming digital ideas into reality. With expertise in graphic design, mobile development, and web solutions, we craft experiences that leave lasting impressions.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 bg-pink-500 gap-8 mt-12 lg:w-[100%]">
+          <div className="grid grid-cols-1 md:grid-cols-3   gap-8 mt-12 ">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
