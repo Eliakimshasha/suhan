@@ -67,7 +67,7 @@ export default function About() {
             We are a passionate team of creators, developers, and innovators dedicated to transforming digital ideas into reality. With expertise in graphic design, mobile development, and web solutions, we craft experiences that leave lasting impressions.
           </p>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 bg-pink-500 gap-8 mt-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 bg-pink-500 gap-8 mt-12 lg:w-[100%]">
             {stats.map((stat, index) => (
               <motion.div
                 key={index}
