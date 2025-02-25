@@ -14,7 +14,7 @@ export default function HappyClients() {
     {
       name: 'Bugwema Lukonge',
       company: 'Innovatech Solutions',
-      image: 'https://www.google.com/imgres?q=face%20smiling%20pictures%20for%20Ceos&imgurl=https%3A%2F%2Fimg.freepik.com%2Ffree-photo%2Fcloseup-portrait-content-nice-young-asian-woman_1262-4809.jpg&imgrefurl=https%3A%2F%2Fwww.freepik.com%2Fphotos%2Fasian-woman-portrait%2F5&docid=E3g89KSTUBraBM&tbnid=Y9DRMSE5f3TtrM&vet=12ahUKEwi2vvOg8N6LAxV2_7sIHdJ6GsIQM3oECFkQAA..i&w=417&h=626&hcb=2&itg=1&ved=2ahUKEwi2vvOg8N6LAxV2_7sIHdJ6GsIQM3oECFkQAA',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEJAc65-7QklTKrCVdh_MfI0qQpVcIQakdK1ddUTidBhm3YHWXNzO4mRhaUy40auVA0XY&usqp=CAU',
       role: 'Marketing Director',
       testimonial:
         'Working with Suhan Creatives transformed our digital presence. Their attention to detail and creative approach exceeded all our expectations.',
@@ -23,7 +23,7 @@ export default function HappyClients() {
     {
       name: 'Frank Swila',
       company: 'EcoSmart Ventures',
-      image: 'https://www.google.com/imgres?q=face%20smiling%20pictures%20for%20Ceos&imgurl=https%3A%2F%2Fphotos.peopleimages.com%2Fpicture%2F202302%2F2618658-business-portrait-smile-and-woman-in-office-of-corporate-company-management-and-success-in-colombia.-happy-executive-mature-female-and-face-of-leadership-professional-trust-and-motivation-of-ceo-fit_148_148.jpg&imgrefurl=https%3A%2F%2Fpeopleimages.com%2Fimage%2FID-2618651-portrait-business-and-woman-with-arms-crossed-in-office-corporate-company-and-management-in-colombia.-business-executive-mature-female-and-smile-for-leadership-professional-trust-or-vision-of-ceo&docid=sVSFl45DWePiYM&tbnid=vJCKeqVInDIOkM&vet=12ahUKEwi2vvOg8N6LAxV2_7sIHdJ6GsIQM3oECF0QAA..i&w=148&h=111&hcb=2&itg=1&ved=2ahUKEwi2vvOg8N6LAxV2_7sIHdJ6GsIQM3oECF0QAA',
+      image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9HPgZAVIoPSp3gfsFvhBB8gMORBuF6oSX3g&s',
       role: 'CEO',
       testimonial:
         'The team at Suhan Creatives delivered exceptional results. Their understanding of our brand and vision resulted in a website that perfectly captures our ethos.',
