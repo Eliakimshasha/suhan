@@ -80,9 +80,9 @@ export default function HappyClients() {
   const handleMouseLeave = () => setAutoplay(true);
 
   return (
-    <section className="py-16 lg:px-32 md:py-24 bg-gray-900 relative overflow-hidden">
+    <section className="py-16 lg:px-32 md:py-24 bg-gray-50 dark:bg-gray-900 relative overflow-hidden transition-colors duration-300">
       {/* Animated background elements */}
-      <div className="absolute inset-0 opacity-20">
+      <div className="absolute inset-0 opacity-10 dark:opacity-20">
         {[...Array(30)].map((_, i) => (
           <motion.div
             key={i}
@@ -125,7 +125,7 @@ export default function HappyClients() {
               Our Happy Clients
             </h2>
 
-            <p className="text-gray-300 max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Don't just take our word for it. Here's what our clients have to
               say about their experience working with Suhan Creatives.
             </p>
@@ -149,7 +149,7 @@ export default function HappyClients() {
                   className={`w-2 md:w-3 h-2 md:h-3 rounded-full transition-all duration-300 ${
                     index === activeIndex
                       ? `w-8 md:w-10 bg-gradient-to-r ${clients[index].color}`
-                      : 'bg-gray-600'
+                      : 'bg-gray-300 dark:bg-gray-600'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -193,25 +193,25 @@ export default function HappyClients() {
                   {/* Card Container with proper aspect ratio */}
                   <div className="w-full mx-auto overflow-hidden">
                     {/* Background with minimal tilt */}
-                    <div className="absolute inset-0 bg-gradient-to-b from-gray-800 to-gray-900 rounded-2xl transform rotate-1 scale-105 opacity-50"></div>
+                    <div className="absolute inset-0 bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 rounded-2xl transform rotate-1 scale-105 opacity-50"></div>
                     
                     {/* Main Card - Now with max-height constraints */}
-                    <div className="relative bg-gray-800 rounded-2xl shadow-2xl transform-style-3d">
+                    <div className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl transform-style-3d">
                       {/* Decorative elements */}
                       <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br opacity-10 rounded-full blur-2xl"></div>
                       <div className="absolute bottom-0 left-0 w-64 h-64 bg-gradient-to-tr opacity-10 rounded-full blur-2xl"></div>
 
                       {/* Responsive Grid Layout */}
-                      <div className="grid grid-cols-1  lg:grid-cols-5 gap-6 p-6 md:p-8 lg:p-10">
+                      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 p-6 md:p-8 lg:p-10">
                         {/* Left Column - Client Image and Info */}
-                        <div className="lg:col-span-1 flex flex-col  items-center lg:items-start">
+                        <div className="lg:col-span-1 flex flex-col items-center lg:items-start">
                           <motion.div
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.3, duration: 0.5 }}
-                            className="relative "
+                            className="relative"
                           >
-                            <div className="w-28 h-28  m-auto lg:w-32 lg:h-32 rounded-full overflow-hidden relative border-4 border-white/10">
+                            <div className="w-28 h-28 m-auto lg:w-32 lg:h-32 rounded-full overflow-hidden relative border-4 border-gray-200 dark:border-white/10">
                               <img
                                 src={clients[activeIndex].image}
                                 alt={clients[activeIndex].name}
@@ -225,7 +225,7 @@ export default function HappyClients() {
                               transition={{ delay: 0.5, duration: 0.5 }}
                               className="text-center lg:text-left mt-4"
                             >
-                              <h3 className="text-xl font-bold text-white">
+                              <h3 className="text-xl font-bold text-gray-800 dark:text-white">
                                 {clients[activeIndex].name}
                               </h3>
                               <p
@@ -233,7 +233,7 @@ export default function HappyClients() {
                               >
                                 {clients[activeIndex].role}
                               </p>
-                              <p className="text-gray-400 text-sm">
+                              <p className="text-gray-500 dark:text-gray-400 text-sm">
                                 {clients[activeIndex].company}
                               </p>
                             </motion.div>
@@ -247,14 +247,14 @@ export default function HappyClients() {
                           transition={{ delay: 0.4, duration: 0.6 }}
                           className="lg:col-span-4 flex items-center"
                         >
-                          <div className="lg:pl-6 lg:border-l lg:border-gray-700 h-full flex items-center">
+                          <div className="lg:pl-6 lg:border-l lg:border-gray-200 dark:lg:border-gray-700 h-full flex items-center">
                             <div className="max-w-3xl">
                               <div className="mb-6 relative">
-                                <div className="absolute -left-3 top-0 text-4xl text-gray-700 opacity-50">"</div>
-                                <p className="text-gray-200 text-base md:text-lg lg:text-xl leading-relaxed italic pl-4">
+                                <div className="absolute -left-3 top-0 text-4xl text-gray-300 dark:text-gray-700 opacity-50">"</div>
+                                <p className="text-gray-700 dark:text-gray-200 text-base md:text-lg lg:text-xl leading-relaxed italic pl-4">
                                   {clients[activeIndex].testimonial}
                                 </p>
-                                <div className="absolute -right-3 bottom-0 text-4xl text-gray-700 opacity-50">"</div>
+                                <div className="absolute -right-3 bottom-0 text-4xl text-gray-300 dark:text-gray-700 opacity-50">"</div>
                               </div>
                               
                               <div
@@ -274,7 +274,7 @@ export default function HappyClients() {
             <div className="flex justify-center gap-4 mt-4 md:mt-6">
               <button
                 onClick={prevTestimonial}
-                className="p-2 md:p-3 rounded-full bg-gray-800 hover:bg-gray-700 text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg border border-gray-700"
+                className="p-2 md:p-3 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg border border-gray-200 dark:border-gray-700"
                 aria-label="Previous testimonial"
               >
                 <svg
@@ -295,7 +295,7 @@ export default function HappyClients() {
 
               <button
                 onClick={nextTestimonial}
-                className="p-2 md:p-3 rounded-full bg-gray-800 hover:bg-gray-700 text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg border border-gray-700"
+                className="p-2 md:p-3 rounded-full bg-white dark:bg-gray-800 hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-700 dark:text-white transition-all duration-300 transform hover:scale-110 hover:shadow-lg border border-gray-200 dark:border-gray-700"
                 aria-label="Next testimonial"
               >
                 <svg
