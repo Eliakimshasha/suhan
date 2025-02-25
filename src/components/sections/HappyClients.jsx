@@ -32,7 +32,7 @@ export default function HappyClients() {
     {
       name: 'Ezra Lutufyo',
       company: 'Horizon Media',
-      image: 'https://th.bing.com/th/id/OIP.Fc-DQxt4GU5qYrOLZ4Gf3QHaHa?pid=ImgDet&w=191&h=191&c=7',
+      image: 'https://th.bing.com/th/id/OIP.3PqOHGjKlwIVUsO2xaWAMQAAAA?w=165&h=180&c=7&r=0&o=5&pid=1.7',
       role: 'Creative Director',
       testimonial:
         'The mobile app developed by Suhan Creatives has increased our customer engagement by 200%. Their technical expertise and design sensibility are unmatched.',
