@@ -7,7 +7,7 @@ export default function Footer() {
   const router = useRouter();
 
   return (
-    <footer className="relative py-12 dark:border-gray-800 overflow-hidden bg-gray-50 dark:bg-gray-900">
+    <footer className="relative py-12 dark:border-gray-800 overflow-hidden bg-gray-100 dark:bg-gray-900">
       {/* Adaptive Background Graphics */}
       <div className="absolute inset-0 w-full h-full">
         <svg
