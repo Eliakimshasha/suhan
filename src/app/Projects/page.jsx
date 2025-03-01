@@ -1,87 +1,85 @@
-'use client'
+'use client';
 
-import { useEffect, useRef } from 'react'
-import { motion, useAnimation, useInView } from 'framer-motion'
-import CountUp from 'react-countup'
-import Head from 'next/head'
-import Image from 'next/image'
+import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { Modal } from '@/components/ui/modal';
+import { ExternalLink, Filter } from 'lucide-react';
+import { LuScanEye } from 'react-icons/lu';
+import Image from 'next/image';
+import Head from 'next/head';
+import Header from '@/components/shared/Header'
 
-export default function AboutPage() {
-  const controls = useAnimation()
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: false, amount: 0.3 })
-  
+
+// Import projects data or define it here
+import { projectsData } from '@/lib/constants';
+
+export default function ProjectsPage() {
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [filteredProjects, setFilteredProjects] = useState(projectsData);
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  // Get all unique categories
+  const categories = ['all', ...new Set(projectsData.map(project => project.category.toLowerCase()))];
+
+  // Filter projects by category and search query
   useEffect(() => {
-    if (isInView) {
-      controls.start('visible')
+    let filtered = projectsData;
+    
+    // Filter by category
+    if (activeFilter !== 'all') {
+      filtered = filtered.filter(project => 
+        project.category.toLowerCase() === activeFilter
+      );
     }
-  }, [controls, isInView])
-
-  const stats = [
-    { number: 5, label: 'Years Experience', suffix: '+' },
-    { number: 100, label: 'Projects Completed', suffix: '+' },
-    { number: 50, label: 'Happy Clients', suffix: '+' }
-  ]
-
-  const team = [
-    {
-      name: 'Alex Johnson',
-      role: 'Founder & Creative Director',
-      image: 'https://randomuser.me/api/portraits/men/32.jpg',
-      bio: 'With over 10 years of experience in digital design, Alex leads our creative team with passion and innovation.'
-    },
-    {
-      name: 'Sarah Chen',
-      role: 'Lead Developer',
-      image: 'https://randomuser.me/api/portraits/women/44.jpg',
-      bio: 'Sarah brings technical excellence to every project, specializing in front-end development and performance optimization.'
-    },
-    {
-      name: 'Michael Roberts',
-      role: 'UI/UX Designer',
-      image: 'https://randomuser.me/api/portraits/men/75.jpg',
-      bio: 'Michael combines aesthetic sensibility with user-focused design to create intuitive and beautiful interfaces.'
-    },
-    {
-      name: 'Jessica Parker',
-      role: 'Project Manager',
-      image: 'https://randomuser.me/api/portraits/women/63.jpg',
-      bio: 'Jessica ensures our projects are delivered on time and exceed client expectations through meticulous planning.'
+    
+    // Filter by search
+    if (searchQuery) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(project => 
+        project.title.toLowerCase().includes(query) || 
+        project.description.toLowerCase().includes(query) ||
+        project.technologies.some(tech => tech.toLowerCase().includes(query))
+      );
     }
-  ]
+    
+    setFilteredProjects(filtered);
+  }, [activeFilter, searchQuery]);
 
   return (
     <>
       <Head>
-        <title>About Us | Suhan Creatives</title>
+        <title>Our Projects | Suhan Creatives</title>
         <meta 
           name="description" 
-          content="Learn about Suhan Creatives - our team, mission, and creative journey."
+          content="Explore our portfolio of creative digital projects including web design, mobile apps, and branding work."
         />
       </Head>
+      <Header/>
 
       {/* Hero Section */}
       <section className="py-20 pt-32 lg:pt-40 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          {[...Array(15)].map((_, i) => (
+          {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
               className="absolute bg-gradient-to-r from-yellow-400 to-blue-500"
               style={{
-                height: `${Math.random() * 40 + 20}px`,
-                width: `${Math.random() * 40 + 20}px`,
+                height: `${Math.random() * 30 + 20}px`,
+                width: `${Math.random() * 30 + 20}px`,
                 left: `${Math.random() * 100}%`,
                 top: `${Math.random() * 100}%`,
                 borderRadius: Math.random() > 0.5 ? '50%' : '0',
-                transform: `rotate(${Math.random() * 360}deg) translateZ(${Math.random() * 100}px)`
               }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: [0.2, 0.4, 0.2] }}
+              animate={{
+                opacity: [0.3, 0.8, 0.3],
+                scale: [1, 1.2, 1],
+                rotate: [0, 90, 180, 270, 360],
+              }}
               transition={{
-                duration: 8,
+                duration: Math.random() * 10 + 10,
                 repeat: Infinity,
-                repeatType: 'reverse',
-                delay: Math.random() * 2
+                ease: "linear",
               }}
             />
           ))}
@@ -95,271 +93,256 @@ export default function AboutPage() {
             className="max-w-4xl mx-auto text-center"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-blue-400">
-              About Suhan Creatives
+              Our Projects
             </h1>
             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 mb-8">
-              We transform ideas into exceptional digital experiences.
+              Showcasing our finest work in digital design and development.
             </p>
             <div className="w-20 h-1 bg-gradient-to-r from-yellow-400 to-blue-400 mx-auto"></div>
           </motion.div>
         </div>
       </section>
 
-      {/* Our Mission */}
+      {/* Projects Gallery Section */}
       <section className="py-16 bg-white dark:bg-gray-800">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row gap-10 items-center">
-            <motion.div 
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="w-full md:w-1/2"
-            >
-              <h2 className="text-3xl font-bold mb-4 text-gray-800 dark:text-white">Our Mission & Vision</h2>
-              <div className="w-16 h-1 bg-yellow-400 mb-6"></div>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                At Suhan Creatives, our mission is to help businesses and individuals transform their digital presence through innovative design and technology solutions. We believe that exceptional design has the power to elevate brands and create meaningful connections with audiences.
-              </p>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
-                Our vision is to be a leading creative force in the digital landscape, known for our cutting-edge approach, attention to detail, and client-focused solutions that drive real business results.
-              </p>
-              <p className="text-gray-600 dark:text-gray-300">
-                We strive to push boundaries, embracing new technologies and design trends while maintaining a commitment to accessibility, usability, and performance in everything we create.
-              </p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="w-full md:w-1/2"
-            >
-              <div className="relative h-72 md:h-96 rounded-lg overflow-hidden">
-                <Image 
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
-                  alt="Our team collaboration"
-                  fill
-                  className="object-cover"
+          {/* Search and Filter */}
+          <div className="mb-12">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+              <div className="w-full md:w-1/3 relative">
+                <input
+                  type="text"
+                  placeholder="Search projects..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full px-4 py-2 pl-10 rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-800 dark:text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
                 />
-                <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400/30 to-blue-500/30"></div>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
               </div>
-            </motion.div>
+              
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                <div className="flex items-center mr-2 text-gray-600 dark:text-gray-300">
+                  <Filter className="w-4 h-4 mr-1" />
+                  <span className="text-sm">Filter:</span>
+                </div>
+                {categories.map((category) => (
+                  <button
+                    key={category}
+                    onClick={() => setActiveFilter(category)}
+                    className={`px-4 py-2 rounded-full text-sm transition-colors ${
+                      activeFilter === category
+                        ? 'bg-yellow-400 text-white'
+                        : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                    }`}
+                  >
+                    {category.charAt(0).toUpperCase() + category.slice(1)}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
 
-      {/* Stats Section */}
-      <section ref={ref} className="py-20 bg-gray-50 dark:bg-gray-900 lg:px-24 relative overflow-hidden">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial="hidden"
-            animate={controls}
-            variants={{
-              hidden: { opacity: 0, y: 50 },
-              visible: { opacity: 1, y: 0 }
-            }}
-            transition={{ duration: 0.8 }}
-            className="mx-auto text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-blue-400">
-              Our Achievement Highlights
-            </h2>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Numbers that reflect our commitment to excellence and client satisfaction.
-            </p>
-          </motion.div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0 }}
-                animate={controls}
-                variants={{
-                  hidden: { opacity: 0, rotateY: 90 },
-                  visible: { opacity: 1, rotateY: 0 }
-                }}
-                transition={{ 
-                  duration: 0.8,
-                  delay: index * 0.3,
-                  type: "spring",
-                  stiffness: 100
-                }}
-                whileHover={{ 
-                  scale: 1.05,
-                  rotateY: 15,
-                  z: 50,
-                  transition: { duration: 0.4 } 
-                }}
-                className="relative h-64 group perspective-1000"
-              >
-                {/* 3D Card with layered effect */}
-                <div className="relative h-full w-full transform-style-3d rounded-xl shadow-xl">
-                  {/* Back layer - shadow and depth */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-yellow-500 to-blue-500 rounded-xl opacity-80 transform -translate-z-4"></div>
-                  
-                  {/* Middle layer - main background */}
-                  <div className="absolute inset-0 bg-white dark:bg-gray-800 rounded-xl transform -translate-z-2"></div>
-                  
-                  {/* Front layer - content */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl flex flex-col items-center justify-center p-6 transform -translate-z-0 backdrop-blur-sm">
-                    {/* 3D floating number with CountUp */}
-                    <div className="relative mb-4">
-                      <h3 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-br from-yellow-400 to-blue-500 relative z-10 transform translate-z-6">
-                        {isInView && (
-                          <CountUp
-                            start={0}
-                            end={stat.number}
-                            duration={2.5}
-                            delay={0.5 + index * 0.2}
-                            enableScrollSpy
-                            scrollSpyOnce
-                            suffix={stat.suffix}
-                          />
-                        )}
-                      </h3>
+          {/* Projects Grid */}
+          {filteredProjects.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {filteredProjects.map((project, index) => (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ scale: 1.03, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
+                  className="bg-white dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+                  onClick={() => setSelectedProject(project)}
+                >
+                  <div className="relative">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={800}
+                      height={500}
+                      className="w-full h-56 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                    <div className="absolute bottom-4 left-4">
+                      <span className="px-3 py-1 bg-yellow-400 text-white text-sm rounded-full">
+                        {project.category}
+                      </span>
                     </div>
-                    
-                    {/* 3D divider */}
-                    <div className="w-16 h-1 bg-gradient-to-r from-yellow-400 to-blue-400 rounded-full mb-4 transform translate-z-2"></div>
-                    
-                    {/* Label with depth */}
-                    <p className="text-gray-600 font-bold dark:text-gray-300 text-lg transform translate-z-4">
-                      {stat.label}
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2">
+                      {project.description}
                     </p>
-                    
-                    {/* 3D Corner accents */}
-                    <div className="absolute top-0 right-0 w-12 h-12 border-t-2 border-r-2 border-yellow-400 opacity-40 rounded-tr-xl transform translate-z-2"></div>
-                    <div className="absolute bottom-0 left-0 w-12 h-12 border-b-2 border-l-2 border-blue-400 opacity-40 rounded-bl-xl transform translate-z-2"></div>
+                    <div className="flex justify-between items-center">
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.slice(0, 3).map((tech, i) => (
+                          <span
+                            key={i}
+                            className="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-xs rounded"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <span className="px-2 py-1 bg-gray-100 dark:bg-gray-600 text-gray-600 dark:text-gray-300 text-xs rounded">
+                            +{project.technologies.length - 3}
+                          </span>
+                        )}
+                      </div>
+                      <div>
+                        <LuScanEye size={30} className='bg-gray-100 dark:bg-black text-gray-700 p-2 rounded-full dark:bg-opacity-30 dark:text-white'/>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Our Process */}
-      <section className="py-16 bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-blue-400">
-              Our Creative Process
-            </h2>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              How we bring your vision to life through our proven methodology.
-            </p>
-          </motion.div>
-
-          <div className="max-w-4xl mx-auto">
-            {[
-              { step: '01', title: 'Discovery', description: 'We begin by understanding your business goals, target audience, and unique challenges. This foundational step ensures our solutions align perfectly with your objectives.' },
-              { step: '02', title: 'Strategy', description: 'Based on our findings, we develop a comprehensive strategy that maps out the path to achieving your digital goals, considering timelines, resources, and measurable outcomes.' },
-              { step: '03', title: 'Design', description: 'Our creative team brings concepts to life through visual design, considering user experience, brand consistency, and current design trends to create compelling visuals.' },
-              { step: '04', title: 'Development', description: 'We transform designs into functional, responsive, and optimized digital experiences, ensuring cross-platform compatibility and performance.' },
-              { step: '05', title: 'Testing & Launch', description: 'Rigorous testing ensures everything works perfectly before launch. We then deploy your project and provide support to ensure a smooth transition.' }
-            ].map((process, index) => (
-              <motion.div 
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="flex mb-8 last:mb-0"
-              >
-                <div className="mr-6">
-                  <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-yellow-400 to-blue-400 text-white font-bold">
-                    {process.step}
-                  </div>
-                  {index < 4 && (
-                    <div className="w-1 h-full bg-gradient-to-b from-yellow-400 to-blue-400 mx-auto my-2"></div>
-                  )}
-                </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">{process.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300">{process.description}</p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Team Section */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-900">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-blue-400">
-              Meet Our Team
-            </h2>
-            <p className="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              The creative minds behind Suhan Creatives.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {team.map((member, index) => (
+                </motion.div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
               <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
-                className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6 }}
               >
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={member.image}
-                    alt={member.name}
-                    fill
-                    className="object-cover transition-transform duration-500 hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 right-4 text-white">
-                    <h3 className="text-xl font-bold">{member.name}</h3>
-                    <p className="text-yellow-400">{member.role}</p>
-                  </div>
-                </div>
-                <div className="p-4">
-                  <p className="text-gray-600 dark:text-gray-300">{member.bio}</p>
-                </div>
+                <svg className="w-16 h-16 mx-auto text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <h3 className="text-xl font-bold text-gray-800 dark:text-white mb-2">No projects found</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                  Try adjusting your search or filter criteria.
+                </p>
+                <button
+                  onClick={() => {
+                    setActiveFilter('all');
+                    setSearchQuery('');
+                  }}
+                  className="px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-white rounded-lg transition-colors"
+                >
+                  Reset Filters
+                </button>
               </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
+          )}
+          
+         {/* Project count and pagination */}
+<div className="mt-12 flex flex-col md:flex-row justify-between items-center">
+  <p className="text-gray-600 dark:text-gray-300 mb-4 md:mb-0">
+    Showing {filteredProjects.length} of {projectsData.length} projects
+  </p>
+  
+  {/* Simple pagination - can be enhanced with actual pagination logic */}
+  <div className="flex space-x-2">
+    <button 
+      className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
+      disabled={true}
+    >
+      Previous
+    </button>
+    <button 
+      className="px-4 py-2 bg-yellow-400 text-white rounded-lg hover:bg-yellow-500 transition-colors disabled:opacity-50"
+    >
+      1
+    </button>
+    <button 
+      className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
+      disabled={true}
+    >
+      Next
+    </button>
+  </div>
+</div>
 
-      {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-r from-yellow-400 to-blue-500 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h2>
-            <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-              Let's collaborate to bring your vision to life with our creative expertise.
-            </p>
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="inline-block px-8 py-4 bg-white text-blue-500 font-bold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
-            >
-              Get in Touch
-            </motion.a>
-          </motion.div>
+{/* Project Modal */}
+{selectedProject && (
+  <Modal
+    isOpen={!!selectedProject}
+    onClose={() => setSelectedProject(null)}
+    className="w-full max-w-4xl mx-auto"
+  >
+    <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden">
+      <div className="relative h-80">
+        <Image
+          src={selectedProject.image}
+          alt={selectedProject.title}
+          layout="fill"
+          objectFit="cover"
+          className="w-full"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+        <div className="absolute bottom-6 left-6">
+          <h2 className="text-3xl font-bold text-white mb-2">{selectedProject.title}</h2>
+          <span className="px-3 py-1 bg-yellow-400 text-white text-sm rounded-full">
+            {selectedProject.category}
+          </span>
         </div>
+      </div>
+      
+      <div className="p-6">
+        <div className="flex flex-wrap gap-2 mb-6">
+          {selectedProject.technologies.map((tech, i) => (
+            <span
+              key={i}
+              className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-sm rounded-full"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+        
+        <p className="text-gray-700 dark:text-gray-300 mb-6">
+          {selectedProject.description}
+        </p>
+        
+        <div className="space-y-4">
+          <h3 className="text-xl font-bold text-gray-800 dark:text-white">Project Details</h3>
+          <p className="text-gray-700 dark:text-gray-300">{selectedProject.details}</p>
+          
+          {selectedProject.challenges && (
+            <>
+              <h3 className="text-xl font-bold text-gray-800 dark:text-white mt-6">Challenges & Solutions</h3>
+              <p className="text-gray-700 dark:text-gray-300">{selectedProject.challenges}</p>
+            </>
+          )}
+        </div>
+        
+        <div className="flex flex-col sm:flex-row gap-4 mt-8">
+          {selectedProject.demoUrl && (
+            <a
+              href={selectedProject.demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center px-6 py-3 bg-yellow-400 hover:bg-yellow-500 text-white rounded-lg transition-colors"
+            >
+              <span>View Live Demo</span>
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </a>
+          )}
+          
+          {selectedProject.caseStudyUrl && (
+            <a
+              href={selectedProject.caseStudyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            >
+              <span>Read Case Study</span>
+              <ExternalLink className="w-4 h-4 ml-2" />
+            </a>
+          )}
+        </div>
+      </div>
+    </div>
+  </Modal>
+)}
+
+</div>
       </section>
     </>
-  )
+  );
 }
