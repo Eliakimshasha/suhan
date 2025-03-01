@@ -159,7 +159,7 @@ export default function Header() {
         className="md:hidden overflow-hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm"
       >
         <div className="container mx-auto px-4 py-4">
-          {navItems.map((item, index) => (
+          {navItems.map((item) => (
             <motion.a
               key={item.label}
               href={item.href}
