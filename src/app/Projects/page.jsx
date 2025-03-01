@@ -5,8 +5,6 @@ import { motion, useAnimation, useInView } from 'framer-motion'
 import CountUp from 'react-countup'
 import Head from 'next/head'
 import Image from 'next/image'
-import Header from '@/components/shared/Header'
-
 
 export default function AboutPage() {
   const controls = useAnimation()
@@ -61,7 +59,6 @@ export default function AboutPage() {
           content="Learn about Suhan Creatives - our team, mission, and creative journey."
         />
       </Head>
-      <Header/>
 
       {/* Hero Section */}
       <section className="py-20 pt-32 lg:pt-40 bg-gray-50 dark:bg-gray-900 relative overflow-hidden">
