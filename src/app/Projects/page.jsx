@@ -11,7 +11,7 @@ import Header from '@/components/shared/Header'
 
 
 // Import projects data or define it here
-import { projectsData } from '@/lib/constants';
+import { projectsData } from '../../components/lib/constants';
 
 export default function ProjectsPage() {
   const [selectedProject, setSelectedProject] = useState(null);
